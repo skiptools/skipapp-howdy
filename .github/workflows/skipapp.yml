@@ -1,0 +1,37 @@
+name: skipapp-howdy
+on:
+  push:
+    branches: '*'
+    tags: "[0-9]+.[0-9]+.[0-9]+"
+  schedule:
+    - cron: '15 1,4,7,10,13,16,19 * * *'
+  workflow_dispatch:
+  pull_request:
+
+permissions:
+  contents: write
+  id-token: write
+  attestations: write
+
+jobs:
+  verify-app:
+    runs-on: macos-13
+    env:
+      DEVELOPER_DIR: /Applications/Xcode_15.0.app/Contents/Developer
+    steps:
+      - name: Cache Homebrew packages
+        uses: actions/cache@v4
+        with:
+          path: ~/Library/Caches/Homebrew
+          key: homebrew-packages
+      - run: brew install skiptools/skip/skip
+      - uses: actions/checkout@v4
+        with:
+          path: skipapp-howdy-repo
+      - name: Compare howdy-skip template with skipapp-howdy repo
+        run: |
+          brew install skiptools/skip/skip
+          ./skipapp-howdy-repo/scripts/diff_template.sh skipapp-howdy skipapp-howdy-repo
+  call-workflow:
+    uses: skiptools/actions/.github/workflows/skip-app.yml@v1
+
