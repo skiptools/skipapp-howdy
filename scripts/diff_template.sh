@@ -4,7 +4,7 @@ AGAINST=${2:-"."}
 
 TMPDIR=`mktemp -d`
 cd ${TMPDIR}
-skip init --no-build --native-app --appid=howdy.skip --version 1.0.0 ${PACKAGE} HowdySkip
+${SKIPCMD:-skip} init --no-build --native-app --appid=howdy.skip --version 1.0.0 ${PACKAGE} HowdySkip
 
 cd -
 

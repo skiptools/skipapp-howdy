@@ -1,13 +1,9 @@
 import Foundation
-#if os(Android)
-import AndroidLogging
-#else
-import OSLog
-#endif
-
+import SkipFuse
 import SkipFuseUI
 
-fileprivate let logger: Logger = Logger(subsystem: "howdy.skip", category: "HowdySkip")
+/// A logger for the HowdySkip module.
+let logger: Logger = Logger(subsystem: "howdy.skip", category: "HowdySkip")
 
 /// The shared top-level view for the app, loaded from the platform-specific App delegates below.
 ///
@@ -26,7 +22,7 @@ public struct HowdySkipRootView : View {
 
 /// Global application delegate functions.
 ///
-/// This functions can update a shared observable object to communicate app state changes to interested views.
+/// These functions can update a shared observable object to communicate app state changes to interested views.
 /// The sender for each of these functions will be either a `UIApplication` (iOS) or `AppCompatActivity` (Android)
 public class HowdySkipAppDelegate {
     public static let shared = HowdySkipAppDelegate()
