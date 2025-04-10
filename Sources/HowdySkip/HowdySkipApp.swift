@@ -24,7 +24,7 @@ public struct HowdySkipRootView : View {
 ///
 /// These functions can update a shared observable object to communicate app state changes to interested views.
 /// The sender for each of these functions will be either a `UIApplication` (iOS) or `AppCompatActivity` (Android)
-public class HowdySkipAppDelegate {
+public final class HowdySkipAppDelegate : Sendable {
     public static let shared = HowdySkipAppDelegate()
 
     private init() {
