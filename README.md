@@ -3,6 +3,76 @@
 This is a [Skip](https://skip.tools) dual-platform app project.
 It builds a native app for both iOS and Android.
 
+This is the exact project with will be output when running the command:
+
+```
+skip init --ntive-app --appid=skip.howdy.App skipapp-howdy HowdySkip
+```
+
+The project structure looks like this:
+
+```
+skipapp-howdy
+├── Android
+│   ├── app
+│   │   ├── build.gradle.kts
+│   │   ├── proguard-rules.pro
+│   │   └── src
+│   │       └── main
+│   │           ├── AndroidManifest.xml
+│   │           ├── kotlin
+│   │           │   └── Main.kt
+│   │           └── res
+│   │               ├── mipmap-anydpi
+│   │               │   └── ic_launcher.xml
+│   │               └── mipmap-hdpi
+│   │                   ├── ic_launcher_background.png
+│   │                   ├── ic_launcher_foreground.png
+│   │                   ├── ic_launcher_monochrome.png
+│   │                   └── ic_launcher.png
+│   ├── gradle
+│   │   └── wrapper
+│   │       └── gradle-wrapper.properties
+│   ├── gradle.properties
+│   └── settings.gradle.kts
+├── Darwin
+│   ├── Assets.xcassets
+│   │   ├── AccentColor.colorset
+│   │   │   └── Contents.json
+│   │   ├── AppIcon.appiconset
+│   │   │   ├── AppIcon@2x.png
+│   │   │   ├── AppIcon@3x.png
+│   │   │   └── Contents.json
+│   │   └── Contents.json
+│   ├── Entitlements.plist
+│   ├── HowdySkip.xcconfig
+│   ├── HowdySkip.xcodeproj
+│   │   ├── project.pbxproj
+│   │   ├── project.xcworkspace
+│   │   │   └── contents.xcworkspacedata
+│   │   └── xcshareddata
+│   │       └── xcschemes
+│   │           └── HowdySkip App.xcscheme
+│   ├── Info.plist
+│   └── Sources
+│       └── Main.swift
+├── Package.swift
+├── README.md
+├── Skip.env
+└── Sources
+    └── HowdySkip
+        ├── ContentView.swift
+        ├── HowdySkipApp.swift
+        ├── Resources
+        │   ├── Localizable.xcstrings
+        │   └── Module.xcassets
+        │       └── Contents.json
+        ├── Skip
+        │   └── skip.yml
+        └── ViewModel.swift
+```
+
+
 ## Building
 
 This project is both a stand-alone Swift Package Manager module,
