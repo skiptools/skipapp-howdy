@@ -11,11 +11,10 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://source.skip.tools/skip.git", from: "1.5.20"),
-        .package(url: "https://source.skip.tools/skip-fuse-ui.git", "0.0.0"..<"2.0.0")
+        .package(url: "https://source.skip.tools/skip-fuse-ui.git", "0.15.6"..<"2.0.0")
     ],
     targets: [
         .target(name: "HowdySkip", dependencies: [
-            .product(name: "SwiftUI", package: "skip-fuse-ui", condition: .when(platforms: [.android])),
             .product(name: "SkipFuseUI", package: "skip-fuse-ui")
         ], plugins: [.plugin(name: "skipstone", package: "skip")]),
     ]
