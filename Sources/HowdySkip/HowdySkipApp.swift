@@ -1,6 +1,6 @@
 import Foundation
 import SkipFuse
-import SkipFuseUI
+import SwiftUI
 
 /// A logger for the HowdySkip module.
 let logger: Logger = Logger(subsystem: "howdy.skip", category: "HowdySkip")
