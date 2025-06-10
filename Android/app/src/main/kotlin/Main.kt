@@ -22,6 +22,9 @@ import androidx.core.app.ActivityCompat
 
 internal val logger: SkipLogger = SkipLogger(subsystem = "howdy.skip", category = "HowdySkip")
 
+private typealias AppRootView = HowdySkipRootView
+private typealias AppDelegate = HowdySkipAppDelegate
+
 /// AndroidAppMain is the `android.app.Application` entry point, and must match `application android:name` in the AndroidMainfest.xml file.
 open class AndroidAppMain: Application {
     constructor() {
@@ -31,6 +34,7 @@ open class AndroidAppMain: Application {
         super.onCreate()
         logger.info("starting app")
         ProcessInfo.launch(applicationContext)
+        AppDelegate.shared.onInit()
     }
 
     companion object {
@@ -56,6 +60,10 @@ open class MainActivity: AppCompatActivity {
             }
         }
 
+        // when using Messaging, uncomment to register for message receipt
+        //Messaging.messaging().onActivityCreated(this)
+        AppDelegate.shared.onLaunch()
+
         // Example of requesting permissions on startup.
         // These must match the permissions in the AndroidManifest.xml file.
         //let permissions = listOf(
@@ -69,33 +77,33 @@ open class MainActivity: AppCompatActivity {
     }
 
     override fun onStart() {
+        logger.info("onStart")
         super.onStart()
-        HowdySkipAppDelegate.shared.onStart()
     }
 
     override fun onResume() {
         super.onResume()
-        HowdySkipAppDelegate.shared.onResume()
+        AppDelegate.shared.onResume()
     }
 
     override fun onPause() {
         super.onPause()
-        HowdySkipAppDelegate.shared.onPause()
+        AppDelegate.shared.onPause()
     }
 
     override fun onStop() {
         super.onStop()
-        HowdySkipAppDelegate.shared.onStop()
+        AppDelegate.shared.onStop()
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        HowdySkipAppDelegate.shared.onDestroy()
+        AppDelegate.shared.onDestroy()
     }
 
     override fun onLowMemory() {
         super.onLowMemory()
-        HowdySkipAppDelegate.shared.onLowMemory()
+        AppDelegate.shared.onLowMemory()
     }
 
     override fun onRestart() {
@@ -126,7 +134,7 @@ internal fun PresentationRootView(context: ComposeContext) {
     PresentationRoot(defaultColorScheme = colorScheme, context = context) { ctx ->
         val contentContext = ctx.content()
         Box(modifier = ctx.modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-            HowdySkipRootView().Compose(context = contentContext)
+            AppRootView().Compose(context = contentContext)
         }
     }
 }
