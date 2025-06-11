@@ -10,8 +10,8 @@ let package = Package(
         .library(name: "HowdySkip", type: .dynamic, targets: ["HowdySkip"]),
     ],
     dependencies: [
-        .package(url: "https://source.skip.tools/skip.git", from: "1.5.21"),
-        .package(url: "https://source.skip.tools/skip-fuse-ui.git", "0.15.6"..<"2.0.0")
+        .package(url: "https://source.skip.tools/skip.git", from: "1.6.0"),
+        .package(url: "https://source.skip.tools/skip-fuse-ui.git", from: "1.0.0")
     ],
     targets: [
         .target(name: "HowdySkip", dependencies: [
