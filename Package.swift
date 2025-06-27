@@ -5,12 +5,12 @@ import PackageDescription
 let package = Package(
     name: "skipapp-howdy",
     defaultLocalization: "en",
-    platforms: [.iOS(.v17), .macOS(.v14), .tvOS(.v17), .watchOS(.v10), .macCatalyst(.v17)],
+    platforms: [.iOS(.v17), .macOS(.v14)],
     products: [
         .library(name: "HowdySkip", type: .dynamic, targets: ["HowdySkip"]),
     ],
     dependencies: [
-        .package(url: "https://source.skip.tools/skip.git", from: "1.6.0"),
+        .package(url: "https://source.skip.tools/skip.git", from: "1.6.1"),
         .package(url: "https://source.skip.tools/skip-fuse-ui.git", from: "1.0.0")
     ],
     targets: [
