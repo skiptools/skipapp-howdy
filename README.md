@@ -1,6 +1,6 @@
 # HowdySkip
 
-This is a [Skip](https://skip.tools) dual-platform app project.
+This is a [Skip](https://skip.dev) dual-platform app project.
 It builds a native app for both iOS and Android.
 
 This is a fully-native compiled Swift app, in contrast
@@ -8,7 +8,7 @@ with the [skipapp-hello](https://github.com/skiptools/skipapp-hello)
 sample, which is a fully-transpiled sample app.
 
 To learn about the distinction, see the
-[Native and Transpiled Modes](https://skip.tools/docs/modes/)
+[Native and Transpiled Modes](https://skip.dev/docs/modes/)
 documentaton.
 
 This repository contains the exact project with will be output when running the command:
